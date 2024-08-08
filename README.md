@@ -4,6 +4,8 @@
   <div align="center">Download browser extension's source code as zip </div>
 </p>
 
+[![Firefox](https://extensionworkshop.com/assets/img/documentation/publish/get-the-addon-178x60px.dad84b42.png)](https://addons.mozilla.org/ja/firefox/addon/downextzip/)
+
 ## Features
 * Download extension as XPI/CRX from multiple websites
 * Download extension as ZIP Archive

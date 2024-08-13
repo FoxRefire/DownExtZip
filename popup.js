@@ -42,7 +42,7 @@ async function getPackage(url){
 }
 
 async function getFirefox(url){
-    let id = url.replace(/.*?firefox\/addon\/(.*?)(\/|#|\?|$).*/, "$1");
+    let id = url.replace(/.*?(firefox|android)\/addon\/(.*?)(\/|#|\?|$).*/, "$2");
     let apiResponse = await fetch(`https://addons.mozilla.org/api/v5/addons/addon/${id}/`).then(r => r.json())
 
     let fileName = `${id}-${apiResponse['current_version']['version']}`

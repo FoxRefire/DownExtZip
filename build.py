@@ -1,27 +1,28 @@
 import os
 import zipfile
-import sys
 
-def create_zip(browser):
+def zip_directory(base_dir, browser, exclude_list):
     os.makedirs('dist', exist_ok=True)
+    exclude_list = set(exclude_list)
 
-    exclude_files = ['dist', 'manifest_chrome.json', 'manifest_firefox.json', 'build.py']
-    target_files = []
-    for root, dirs, files in os.walk('.'):
-        dirs[:] = [d for d in dirs if d not in exclude_files]
-        for file in files:
-            if file not in exclude_files:
-                target_files.append(os.path.join(root, file))
+    def should_include(path):
+        rel_path = os.path.relpath(path, base_dir)
+        return not any(rel_path.startswith(exclude) for exclude in exclude_list)
 
-    with zipfile.ZipFile(f'dist/{browser}.zip', 'w') as zipf:
-        zipf.write(f'manifest_{browser}.json', arcname='manifest.json')
-        for target_file in target_files:
-            zipf.write(target_file, arcname=os.path.relpath(target_file))
+    with zipfile.ZipFile(os.path.join(base_dir, f'dist/{browser}.zip'), 'w', zipfile.ZIP_DEFLATED) as zip_file:
+        zip_file.write(f'manifest_{browser}.json', arcname='manifest.json')
+        for foldername, subfolders, filenames in os.walk(base_dir):
+            subfolders[:] = [f for f in subfolders if should_include(os.path.join(foldername, f))]
+            for filename in filenames:
+                file_path = os.path.join(foldername, filename)
+                if should_include(file_path):
+                    arcname = os.path.relpath(file_path, base_dir)
+                    zip_file.write(file_path, arcname=arcname)
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python build.py <browser>")
-        sys.exit(1)
+if __name__ == '__main__':
+    base_dir = os.path.dirname(os.path.abspath(__file__))
 
-    browser = sys.argv[1]
-    create_zip(browser)
+    exclude_list = ['dist', 'manifest_chrome.json', 'manifest_firefox.json', 'build.py', '.git' ,'.gitignore']
+
+    for browser in ["chrome","firefox"]:
+        zip_directory(base_dir, browser, exclude_list)

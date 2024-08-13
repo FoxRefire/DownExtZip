@@ -1,0 +1,20 @@
+{
+    "name": "DownExtZip",
+    "description": "Download browser extension's source code as zip",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {
+        "128": "icon.png"
+    },
+    "action": {
+        "default_title": "DownExtZip",
+        "default_popup": "popup.html"
+    },
+    "permissions":["tabs"],
+    "host_permissions": ["<all_urls>"],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "DownExtZip@DownExtZip"
+        }
+    }
+}

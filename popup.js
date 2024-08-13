@@ -30,6 +30,7 @@ async function getPackage(url){
     let host = (new URL(url)).host
     let utils = [
         ["addons.mozilla.org", getFirefox],
+        ["gnuzilla.gnu.org", getIcecat],
         ["chromewebstore.google.com", getChrome],
         ["microsoftedge.microsoft.com", getEdge],
         ["addons.opera.com", getOpera]
@@ -78,6 +79,12 @@ async function getOpera(url){
     let fileName = `${id}-${await findVersion(data)}`
 
     return [fileName, data, ".crx"]
+}
+
+async function getIcecat(url) {
+    let content = await fetch(url).then(r => r.text())
+    let origURL = content.match(/(?<=<li>Orig: <a href=").*?(?=">)/)[0]
+    return getFirefox(origURL)
 }
 
 async function findVersion(data){

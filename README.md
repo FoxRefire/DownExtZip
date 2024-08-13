@@ -14,6 +14,8 @@
 ## Supported websites
 ```
 addons.mozilla.org
+gnuzilla.gnu.org
+addons.thunderbird.net
 chromewebstore.google.com
 microsoftedge.microsoft.com
 addons.opera.com

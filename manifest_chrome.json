@@ -10,5 +10,6 @@
         "default_title": "DownExtZip",
         "default_popup": "popup.html"
     },
-    "permissions":["tabs"]
+    "permissions":["tabs"],
+    "host_permissions":["<all_urls>"]
 }

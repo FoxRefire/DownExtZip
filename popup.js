@@ -34,7 +34,8 @@ async function getPackage(url){
         ["addons.thunderbird.net", getThunderbird],
         ["chromewebstore.google.com", getChrome],
         ["microsoftedge.microsoft.com", getEdge],
-        ["addons.opera.com", getOpera]
+        ["addons.opera.com", getOpera],
+        ["store.whale.naver.com", getWhale]
     ]
     for(let util of utils){
         if(host == util[0]){
@@ -64,6 +65,7 @@ async function getChrome(url){
 }
 
 async function getEdge(url){
+    // Edge cannot dynamically retrieve crx using fetch
     let id = url.replace(/.*?\/detail\/(.*?)\/(.*?)(\/|#|\?|$).*/, "$2")
     Object.assign(document.createElement("a"), {
         href: `https://edge.microsoft.com/extensionwebstorebase/v1/crx?response=redirect&x=id%3D${id}%26installsource%3Dondemand%26uc`,
@@ -99,6 +101,12 @@ async function getThunderbird(url) {
     console.log(data)
 
     return [fileName, data, ".xpi"]
+}
+
+async function getWhale(url) {
+    let id = url.replace(/.*?\/detail\/(.*?)(\/|#|\?|$).*/, "$1")
+    let data = await fetch(`https://store.whale.naver.com/update/whx?response=redirect&amp;x=id%3D${id}%26installsource%3Dondemand%26uc`).then(r => r.arrayBuffer())
+    let fileName = `${id}-${await findVersion(data)}`
 }
 
 async function findVersion(data){

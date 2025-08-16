@@ -57,7 +57,7 @@ async function getChrome(url){
     let id = url.replace(/.*?\/detail\/(.*?)\/(.*?)(\/|#|\?|$).*/, "$2")
     let name = url.replace(/.*?\/detail\/(.*?)\/(.*?)(\/|#|\?|$).*/, "$1")
 
-    let data = await fetch(`https://clients2.google.com/service/update2/crx?response=redirect&prodversion=103.0.1264.77&acceptformat=crx3&x=id%3D${id}%26installsource%3Dondemand%26uc`).then(r => r.arrayBuffer())
+    let data = await fetch(`https://clients2.google.com/service/update2/crx?response=redirect&prodversion=140&acceptformat=crx3&x=id%3D${id}%26installsource%3Dondemand%26uc`).then(r => r.arrayBuffer())
     let fileName = `${name}-${await findVersion(data)}`
 
     return [fileName, data, ".crx"]
@@ -65,12 +65,10 @@ async function getChrome(url){
 
 async function getEdge(url){
     let id = url.replace(/.*?\/detail\/(.*?)\/(.*?)(\/|#|\?|$).*/, "$2")
-    let name = url.replace(/.*?\/detail\/(.*?)\/(.*?)(\/|#|\?|$).*/, "$1")
-
-    let data = await fetch(`https://edge.microsoft.com/extensionwebstorebase/v1/crx?response=redirect&x=id%3D${id}%26installsource%3Dondemand%26uc`).then(r => r.arrayBuffer())
-    let fileName = `${name}-${await findVersion(data)}`
-
-    return [fileName, data, ".crx"]
+    Object.assign(document.createElement("a"), {
+        href: `https://edge.microsoft.com/extensionwebstorebase/v1/crx?response=redirect&x=id%3D${id}%26installsource%3Dondemand%26uc`,
+        download: `${id}.crx`
+    }).click()
 }
 
 async function getOpera(url){

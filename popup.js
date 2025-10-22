@@ -139,7 +139,8 @@ async function getPackage(url){
         ["chromewebstore.google.com", getChrome],
         ["microsoftedge.microsoft.com", getEdge],
         ["addons.opera.com", getOpera],
-        ["store.whale.naver.com", getWhale]
+        ["store.whale.naver.com", getWhale],
+        ["zen-browser.app", getZen]
     ]
     for(let util of utils){
         if(host == util[0]){
@@ -211,6 +212,45 @@ async function getWhale(url) {
     let id = url.replace(/.*?\/detail\/(.*?)(\/|#|\?|$).*/, "$1")
     let data = await fetch(`https://store.whale.naver.com/update/whx?response=redirect&amp;x=id%3D${id}%26installsource%3Dondemand%26uc`).then(r => r.arrayBuffer())
     let fileName = `${id}-${await findVersion(data)}`
+
+    return [fileName, data, ".crx"]
+}
+
+async function getZen(url) {
+    // Extract UUID from URL
+    let uuid = url.replace(/.*?\/mods\/([a-f0-9-]+)(\/|#|\?|$).*/, "$1")
+    
+    if (!uuid || uuid === url) {
+        throw new Error("Invalid Zen Browser mod URL")
+    }
+    
+    // Fetch directory contents from GitHub
+    let apiUrl = `https://api.github.com/repos/zen-browser/theme-store/contents/themes/${uuid}`
+    let response = await fetch(apiUrl)
+    
+    if (!response.ok) {
+        throw new Error(`Failed to fetch mod files: ${response.status}`)
+    }
+    
+    let files = await response.json()
+    
+    // Create ZIP file
+    let zip = new JSZip()
+    
+    // Download and add each file to the ZIP
+    for (let file of files) {
+        if (file.type === 'file') {
+            let fileResponse = await fetch(file.download_url)
+            let fileData = await fileResponse.arrayBuffer()
+            zip.file(file.name, fileData)
+        }
+    }
+    
+    // Generate ZIP file
+    let zipData = await zip.generateAsync({type: "arraybuffer"})
+    let fileName = `zen-mod-${uuid}`
+    
+    return [fileName, zipData, ".zip"]
 }
 
 async function findVersion(data){

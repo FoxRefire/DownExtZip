@@ -1,23 +1,127 @@
-document.getElementById('xpi-crx').addEventListener("click", async () => {
-    let url = await queryURL()
-    let [fileName, data, ext] = await getPackage(url)
-    downloadResult(data, fileName + ext)
-})
+// UI utility functions
+function showLoading(buttonId) {
+    const button = document.getElementById(buttonId);
+    const spinner = button.querySelector('.loading-spinner');
+    const btnContent = button.querySelector('.btn-content');
+    
+    button.disabled = true;
+    btnContent.style.opacity = '0.6';
+    spinner.style.display = 'block';
+}
 
-document.getElementById('zip').addEventListener("click", async () => {
-    let url = await queryURL()
-    let [fileName, data, ext] = await getPackage(url)
-    if(ext == ".crx"){
-        data = await crx2zip(data)
+function hideLoading(buttonId) {
+    const button = document.getElementById(buttonId);
+    const spinner = button.querySelector('.loading-spinner');
+    const btnContent = button.querySelector('.btn-content');
+    
+    button.disabled = false;
+    btnContent.style.opacity = '1';
+    spinner.style.display = 'none';
+}
+
+function showStatus(message, type = 'info') {
+    const statusEl = document.getElementById('status-message');
+    statusEl.textContent = message;
+    statusEl.className = `status-message status-${type}`;
+    statusEl.style.display = 'block';
+    
+    // Auto-hide after 3 seconds for success messages
+    if (type === 'success') {
+        setTimeout(() => {
+            statusEl.style.display = 'none';
+        }, 3000);
     }
-    downloadResult(data, fileName + ".zip")
+}
+
+function hideStatus() {
+    const statusEl = document.getElementById('status-message');
+    statusEl.style.display = 'none';
+}
+
+function addRippleEffect(button) {
+    const ripple = document.createElement('span');
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = event.clientX - rect.left - size / 2;
+    const y = event.clientY - rect.top - size / 2;
+    
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.classList.add('ripple');
+    
+    button.appendChild(ripple);
+    
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
+
+// Event listeners with enhanced UI feedback
+document.getElementById('xpi-crx').addEventListener("click", async (event) => {
+    addRippleEffect(event.target);
+    showLoading('xpi-crx');
+    hideStatus();
+    
+    try {
+        let url = await queryURL()
+        showStatus('Fetching package...', 'info');
+        let [fileName, data, ext] = await getPackage(url)
+        showStatus('Starting download...', 'info');
+        downloadResult(data, fileName + ext)
+        showStatus('Download completed!', 'success');
+    } catch (error) {
+        console.error('Error downloading XPI/CRX:', error);
+        showStatus('Error occurred. Please use on extension store pages.', 'error');
+    } finally {
+        hideLoading('xpi-crx');
+    }
 })
 
-document.getElementById('zip-beautify').addEventListener("click", async () => {
-    let url = await queryURL()
-    let [fileName, data, ext] = await getPackage(url)
-    data = await beautify(data)
-    downloadResult(data, fileName + ".zip")
+document.getElementById('zip').addEventListener("click", async (event) => {
+    addRippleEffect(event.target);
+    showLoading('zip');
+    hideStatus();
+    
+    try {
+        let url = await queryURL()
+        showStatus('Fetching package...', 'info');
+        let [fileName, data, ext] = await getPackage(url)
+        showStatus('Converting to ZIP...', 'info');
+        if(ext == ".crx"){
+            data = await crx2zip(data)
+        }
+        showStatus('Starting download...', 'info');
+        downloadResult(data, fileName + ".zip")
+        showStatus('Download completed!', 'success');
+    } catch (error) {
+        console.error('Error downloading ZIP:', error);
+        showStatus('Error occurred. Please use on extension store pages.', 'error');
+    } finally {
+        hideLoading('zip');
+    }
+})
+
+document.getElementById('zip-beautify').addEventListener("click", async (event) => {
+    addRippleEffect(event.target);
+    showLoading('zip-beautify');
+    hideStatus();
+    
+    try {
+        let url = await queryURL()
+        showStatus('Fetching package...', 'info');
+        let [fileName, data, ext] = await getPackage(url)
+        showStatus('Formatting code...', 'info');
+        data = await beautify(data)
+        showStatus('Starting download...', 'info');
+        downloadResult(data, fileName + ".zip")
+        showStatus('Download completed!', 'success');
+    } catch (error) {
+        console.error('Error downloading beautified ZIP:', error);
+        showStatus('Error occurred. Please use on extension store pages.', 'error');
+    } finally {
+        hideLoading('zip-beautify');
+    }
 })
 
 function queryURL(){

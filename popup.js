@@ -1,3 +1,26 @@
+// Supported sites configuration
+const SUPPORTED_SITES = [
+    "addons.mozilla.org",
+    "gnuzilla.gnu.org", 
+    "addons.thunderbird.net",
+    "chromewebstore.google.com",
+    "microsoftedge.microsoft.com",
+    "addons.opera.com",
+    "store.whale.naver.com",
+    "zen-browser.app"
+];
+
+// Check if current site is supported
+async function isSupportedSite() {
+    try {
+        const url = await queryURL();
+        const host = (new URL(url)).host;
+        return SUPPORTED_SITES.includes(host);
+    } catch (error) {
+        return false;
+    }
+}
+
 // UI utility functions
 function showLoading(buttonId) {
     const button = document.getElementById(buttonId);
@@ -38,6 +61,26 @@ function hideStatus() {
     statusEl.style.display = 'none';
 }
 
+function showUnsupportedSite() {
+    const buttonGroup = document.querySelector('.button-group');
+    const statusEl = document.getElementById('status-message');
+    
+    // Hide all buttons
+    buttonGroup.style.display = 'none';
+    
+    // Show unsupported message
+    statusEl.textContent = 'This site is not supported. Please use on extension store pages.';
+    statusEl.className = 'status-message status-error';
+    statusEl.style.display = 'block';
+    
+    // Update header
+    const header = document.querySelector('.header');
+    header.innerHTML = `
+        <h1>DownExtZip</h1>
+        <p>Unsupported site</p>
+    `;
+}
+
 function addRippleEffect(button) {
     const ripple = document.createElement('span');
     const rect = button.getBoundingClientRect();
@@ -56,6 +99,22 @@ function addRippleEffect(button) {
         ripple.remove();
     }, 600);
 }
+
+// Initialize popup based on current site
+async function initializePopup() {
+    const isSupported = await isSupportedSite();
+    if (!isSupported) {
+        showUnsupportedSite();
+        return;
+    }
+    
+    // Show normal interface for supported sites
+    const buttonGroup = document.querySelector('.button-group');
+    buttonGroup.style.display = 'flex';
+}
+
+// Initialize when popup loads
+document.addEventListener('DOMContentLoaded', initializePopup);
 
 // Event listeners with enhanced UI feedback
 document.getElementById('xpi-crx').addEventListener("click", async (event) => {

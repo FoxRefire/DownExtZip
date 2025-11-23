@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "Browser-Erweiterungsquellcode als ZIP herunterladen"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "Browser-Erweiterungsquellcode herunterladen"
+  },
+  "buttonXpiCrx": {
+    "message": "XPI/CRX-Paket"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "Im Originalformat herunterladen"
+  },
+  "buttonZip": {
+    "message": "ZIP-Archiv"
+  },
+  "buttonZipSubtitle": {
+    "message": "Als komprimierte Datei herunterladen"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP (formatiert)"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "Mit formatiertem Code herunterladen"
+  },
+  "footerText": {
+    "message": "Auf Erweiterungs-Store-Seiten verwenden"
+  },
+  "unsupportedSite": {
+    "message": "Nicht unterstützte Website"
+  },
+  "unsupportedMessage": {
+    "message": "Diese Website wird nicht unterstützt. Bitte verwenden Sie sie auf Erweiterungs-Store-Seiten."
+  },
+  "statusFetching": {
+    "message": "Paket wird abgerufen..."
+  },
+  "statusConverting": {
+    "message": "Wird in ZIP konvertiert..."
+  },
+  "statusFormatting": {
+    "message": "Code wird formatiert..."
+  },
+  "statusDownloading": {
+    "message": "Download wird gestartet..."
+  },
+  "statusCompleted": {
+    "message": "Download abgeschlossen!"
+  },
+  "statusError": {
+    "message": "Ein Fehler ist aufgetreten. Bitte verwenden Sie es auf Erweiterungs-Store-Seiten."
+  }
+}
+

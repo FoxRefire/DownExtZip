@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "브라우저 확장 프로그램 소스 코드를 ZIP으로 다운로드"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "브라우저 확장 프로그램 소스 코드 다운로드"
+  },
+  "buttonXpiCrx": {
+    "message": "XPI/CRX 패키지"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "원본 형식으로 다운로드"
+  },
+  "buttonZip": {
+    "message": "ZIP 아카이브"
+  },
+  "buttonZipSubtitle": {
+    "message": "압축 파일로 다운로드"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP (정리됨)"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "포맷된 코드로 다운로드"
+  },
+  "footerText": {
+    "message": "확장 프로그램 스토어 페이지에서 사용"
+  },
+  "unsupportedSite": {
+    "message": "지원되지 않는 사이트"
+  },
+  "unsupportedMessage": {
+    "message": "이 사이트는 지원되지 않습니다. 확장 프로그램 스토어 페이지에서 사용하세요."
+  },
+  "statusFetching": {
+    "message": "패키지 가져오는 중..."
+  },
+  "statusConverting": {
+    "message": "ZIP으로 변환 중..."
+  },
+  "statusFormatting": {
+    "message": "코드 포맷팅 중..."
+  },
+  "statusDownloading": {
+    "message": "다운로드 시작 중..."
+  },
+  "statusCompleted": {
+    "message": "다운로드 완료!"
+  },
+  "statusError": {
+    "message": "오류가 발생했습니다. 확장 프로그램 스토어 페이지에서 사용하세요."
+  }
+}
+

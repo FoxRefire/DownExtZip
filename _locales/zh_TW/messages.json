@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "以ZIP格式下載瀏覽器擴充功能原始碼"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "下載瀏覽器擴充功能原始碼"
+  },
+  "buttonXpiCrx": {
+    "message": "XPI/CRX套件"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "以原始格式下載"
+  },
+  "buttonZip": {
+    "message": "ZIP壓縮檔"
+  },
+  "buttonZipSubtitle": {
+    "message": "以壓縮檔案形式下載"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP（美化版）"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "下載格式化後的程式碼"
+  },
+  "footerText": {
+    "message": "請在擴充功能商店頁面使用"
+  },
+  "unsupportedSite": {
+    "message": "不支援的網站"
+  },
+  "unsupportedMessage": {
+    "message": "此網站不受支援。請在擴充功能商店頁面使用。"
+  },
+  "statusFetching": {
+    "message": "正在取得套件..."
+  },
+  "statusConverting": {
+    "message": "正在轉換為ZIP..."
+  },
+  "statusFormatting": {
+    "message": "正在格式化程式碼..."
+  },
+  "statusDownloading": {
+    "message": "正在開始下載..."
+  },
+  "statusCompleted": {
+    "message": "下載完成！"
+  },
+  "statusError": {
+    "message": "發生錯誤。請在擴充功能商店頁面使用。"
+  }
+}
+

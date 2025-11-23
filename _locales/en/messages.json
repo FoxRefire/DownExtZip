@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "Download browser extension's source code as zip"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "Download browser extension source code"
+  },
+  "buttonXpiCrx": {
+    "message": "XPI/CRX Package"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "Download in original format"
+  },
+  "buttonZip": {
+    "message": "ZIP Archive"
+  },
+  "buttonZipSubtitle": {
+    "message": "Download as compressed file"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP (Beautified)"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "Download with formatted code"
+  },
+  "footerText": {
+    "message": "Use on extension store pages"
+  },
+  "unsupportedSite": {
+    "message": "Unsupported site"
+  },
+  "unsupportedMessage": {
+    "message": "This site is not supported. Please use on extension store pages."
+  },
+  "statusFetching": {
+    "message": "Fetching package..."
+  },
+  "statusConverting": {
+    "message": "Converting to ZIP..."
+  },
+  "statusFormatting": {
+    "message": "Formatting code..."
+  },
+  "statusDownloading": {
+    "message": "Starting download..."
+  },
+  "statusCompleted": {
+    "message": "Download completed!"
+  },
+  "statusError": {
+    "message": "Error occurred. Please use on extension store pages."
+  }
+}
+

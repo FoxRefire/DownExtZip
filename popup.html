@@ -186,8 +186,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>DownExtZip</h1>
-            <p>Download browser extension source code</p>
+            <h1 data-i18n="headerTitle">DownExtZip</h1>
+            <p data-i18n="headerDescription">Download browser extension source code</p>
         </div>
 
         <div class="button-group">
@@ -195,8 +195,8 @@
                 <div class="btn-content">
                     <div class="btn-icon">📦</div>
                     <div class="btn-text">
-                        <div>XPI/CRX Package</div>
-                        <div class="btn-subtitle">Download in original format</div>
+                        <div data-i18n="buttonXpiCrx">XPI/CRX Package</div>
+                        <div class="btn-subtitle" data-i18n="buttonXpiCrxSubtitle">Download in original format</div>
                     </div>
                 </div>
                 <div class="loading-spinner"></div>
@@ -206,8 +206,8 @@
                 <div class="btn-content">
                     <div class="btn-icon">🗜️</div>
                     <div class="btn-text">
-                        <div>ZIP Archive</div>
-                        <div class="btn-subtitle">Download as compressed file</div>
+                        <div data-i18n="buttonZip">ZIP Archive</div>
+                        <div class="btn-subtitle" data-i18n="buttonZipSubtitle">Download as compressed file</div>
                     </div>
                 </div>
                 <div class="loading-spinner"></div>
@@ -217,8 +217,8 @@
                 <div class="btn-content">
                     <div class="btn-icon">✨</div>
                     <div class="btn-text">
-                        <div>ZIP (Beautified)</div>
-                        <div class="btn-subtitle">Download with formatted code</div>
+                        <div data-i18n="buttonZipBeautify">ZIP (Beautified)</div>
+                        <div class="btn-subtitle" data-i18n="buttonZipBeautifySubtitle">Download with formatted code</div>
                     </div>
                 </div>
                 <div class="loading-spinner"></div>
@@ -228,14 +228,14 @@
         <div id="status-message" class="status-message"></div>
 
         <div class="footer">
-            <div>Use on extension store pages</div>
+            <div data-i18n="footerText">Use on extension store pages</div>
         </div>
     </div>
 
-    <script src="popup.js"></script>
     <script src="libs/jszip.min.js"></script>
     <script src="libs/beautify.min.js"></script>
     <script src="libs/beautify-css.min.js"></script>
     <script src="libs/beautify-html.min.js"></script>
+    <script src="popup.js"></script>
 </body>
 </html>

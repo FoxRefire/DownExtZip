@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "Télécharger le code source de l'extension de navigateur en ZIP"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "Télécharger le code source de l'extension de navigateur"
+  },
+  "buttonXpiCrx": {
+    "message": "Paquet XPI/CRX"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "Télécharger au format original"
+  },
+  "buttonZip": {
+    "message": "Archive ZIP"
+  },
+  "buttonZipSubtitle": {
+    "message": "Télécharger en tant que fichier compressé"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP (Formaté)"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "Télécharger avec code formaté"
+  },
+  "footerText": {
+    "message": "Utiliser sur les pages du magasin d'extensions"
+  },
+  "unsupportedSite": {
+    "message": "Site non pris en charge"
+  },
+  "unsupportedMessage": {
+    "message": "Ce site n'est pas pris en charge. Veuillez l'utiliser sur les pages du magasin d'extensions."
+  },
+  "statusFetching": {
+    "message": "Récupération du paquet..."
+  },
+  "statusConverting": {
+    "message": "Conversion en ZIP..."
+  },
+  "statusFormatting": {
+    "message": "Formatage du code..."
+  },
+  "statusDownloading": {
+    "message": "Démarrage du téléchargement..."
+  },
+  "statusCompleted": {
+    "message": "Téléchargement terminé !"
+  },
+  "statusError": {
+    "message": "Une erreur s'est produite. Veuillez l'utiliser sur les pages du magasin d'extensions."
+  }
+}
+

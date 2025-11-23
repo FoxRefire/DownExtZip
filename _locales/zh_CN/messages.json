@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "以ZIP格式下载浏览器扩展源代码"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "下载浏览器扩展源代码"
+  },
+  "buttonXpiCrx": {
+    "message": "XPI/CRX包"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "以原始格式下载"
+  },
+  "buttonZip": {
+    "message": "ZIP压缩包"
+  },
+  "buttonZipSubtitle": {
+    "message": "以压缩文件形式下载"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP（美化版）"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "下载格式化后的代码"
+  },
+  "footerText": {
+    "message": "请在扩展商店页面使用"
+  },
+  "unsupportedSite": {
+    "message": "不支持的网站"
+  },
+  "unsupportedMessage": {
+    "message": "此网站不受支持。请在扩展商店页面使用。"
+  },
+  "statusFetching": {
+    "message": "正在获取包..."
+  },
+  "statusConverting": {
+    "message": "正在转换为ZIP..."
+  },
+  "statusFormatting": {
+    "message": "正在格式化代码..."
+  },
+  "statusDownloading": {
+    "message": "正在开始下载..."
+  },
+  "statusCompleted": {
+    "message": "下载完成！"
+  },
+  "statusError": {
+    "message": "发生错误。请在扩展商店页面使用。"
+  }
+}
+

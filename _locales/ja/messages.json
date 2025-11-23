@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "ブラウザ拡張機能のソースコードをZIPとしてダウンロード"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "ブラウザ拡張機能のソースコードをダウンロード"
+  },
+  "buttonXpiCrx": {
+    "message": "XPI/CRXパッケージ"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "元の形式でダウンロード"
+  },
+  "buttonZip": {
+    "message": "ZIPアーカイブ"
+  },
+  "buttonZipSubtitle": {
+    "message": "圧縮ファイルとしてダウンロード"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP（整形済み）"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "フォーマット済みコードでダウンロード"
+  },
+  "footerText": {
+    "message": "拡張機能ストアページで使用してください"
+  },
+  "unsupportedSite": {
+    "message": "サポートされていないサイト"
+  },
+  "unsupportedMessage": {
+    "message": "このサイトはサポートされていません。拡張機能ストアページで使用してください。"
+  },
+  "statusFetching": {
+    "message": "パッケージを取得中..."
+  },
+  "statusConverting": {
+    "message": "ZIPに変換中..."
+  },
+  "statusFormatting": {
+    "message": "コードを整形中..."
+  },
+  "statusDownloading": {
+    "message": "ダウンロードを開始中..."
+  },
+  "statusCompleted": {
+    "message": "ダウンロード完了！"
+  },
+  "statusError": {
+    "message": "エラーが発生しました。拡張機能ストアページで使用してください。"
+  }
+}
+

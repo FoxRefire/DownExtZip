@@ -1,3 +1,19 @@
+// i18n helper function
+function i18n(messageKey) {
+    return chrome.i18n.getMessage(messageKey);
+}
+
+// Apply i18n to all elements with data-i18n attribute
+function applyI18n() {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const messageKey = element.getAttribute('data-i18n');
+        const message = i18n(messageKey);
+        if (message) {
+            element.textContent = message;
+        }
+    });
+}
+
 // Supported sites configuration
 const SUPPORTED_SITES = [
     "addons.mozilla.org",
@@ -69,15 +85,15 @@ function showUnsupportedSite() {
     buttonGroup.style.display = 'none';
     
     // Show unsupported message
-    statusEl.textContent = 'This site is not supported. Please use on extension store pages.';
+    statusEl.textContent = i18n('unsupportedMessage');
     statusEl.className = 'status-message status-error';
     statusEl.style.display = 'block';
     
     // Update header
     const header = document.querySelector('.header');
     header.innerHTML = `
-        <h1>DownExtZip</h1>
-        <p>Unsupported site</p>
+        <h1>${i18n('headerTitle')}</h1>
+        <p>${i18n('unsupportedSite')}</p>
     `;
 }
 
@@ -102,6 +118,9 @@ function addRippleEffect(button) {
 
 // Initialize popup based on current site
 async function initializePopup() {
+    // Apply i18n translations
+    applyI18n();
+    
     const isSupported = await isSupportedSite();
     if (!isSupported) {
         showUnsupportedSite();
@@ -124,14 +143,14 @@ document.getElementById('xpi-crx').addEventListener("click", async (event) => {
     
     try {
         let url = await queryURL()
-        showStatus('Fetching package...', 'info');
+        showStatus(i18n('statusFetching'), 'info');
         let [fileName, data, ext] = await getPackage(url)
-        showStatus('Starting download...', 'info');
+        showStatus(i18n('statusDownloading'), 'info');
         downloadResult(data, fileName + ext)
-        showStatus('Download completed!', 'success');
+        showStatus(i18n('statusCompleted'), 'success');
     } catch (error) {
         console.error('Error downloading XPI/CRX:', error);
-        showStatus('Error occurred. Please use on extension store pages.', 'error');
+        showStatus(i18n('statusError'), 'error');
     } finally {
         hideLoading('xpi-crx');
     }
@@ -144,18 +163,18 @@ document.getElementById('zip').addEventListener("click", async (event) => {
     
     try {
         let url = await queryURL()
-        showStatus('Fetching package...', 'info');
+        showStatus(i18n('statusFetching'), 'info');
         let [fileName, data, ext] = await getPackage(url)
-        showStatus('Converting to ZIP...', 'info');
+        showStatus(i18n('statusConverting'), 'info');
         if(ext == ".crx"){
             data = await crx2zip(data)
         }
-        showStatus('Starting download...', 'info');
+        showStatus(i18n('statusDownloading'), 'info');
         downloadResult(data, fileName + ".zip")
-        showStatus('Download completed!', 'success');
+        showStatus(i18n('statusCompleted'), 'success');
     } catch (error) {
         console.error('Error downloading ZIP:', error);
-        showStatus('Error occurred. Please use on extension store pages.', 'error');
+        showStatus(i18n('statusError'), 'error');
     } finally {
         hideLoading('zip');
     }
@@ -168,16 +187,16 @@ document.getElementById('zip-beautify').addEventListener("click", async (event) 
     
     try {
         let url = await queryURL()
-        showStatus('Fetching package...', 'info');
+        showStatus(i18n('statusFetching'), 'info');
         let [fileName, data, ext] = await getPackage(url)
-        showStatus('Formatting code...', 'info');
+        showStatus(i18n('statusFormatting'), 'info');
         data = await beautify(data)
-        showStatus('Starting download...', 'info');
+        showStatus(i18n('statusDownloading'), 'info');
         downloadResult(data, fileName + ".zip")
-        showStatus('Download completed!', 'success');
+        showStatus(i18n('statusCompleted'), 'success');
     } catch (error) {
         console.error('Error downloading beautified ZIP:', error);
-        showStatus('Error occurred. Please use on extension store pages.', 'error');
+        showStatus(i18n('statusError'), 'error');
     } finally {
         hideLoading('zip-beautify');
     }

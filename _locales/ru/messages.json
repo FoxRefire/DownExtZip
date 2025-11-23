@@ -1,0 +1,60 @@
+{
+  "appName": {
+    "message": "DownExtZip"
+  },
+  "appDescription": {
+    "message": "Скачать исходный код расширения браузера в виде ZIP"
+  },
+  "headerTitle": {
+    "message": "DownExtZip"
+  },
+  "headerDescription": {
+    "message": "Скачать исходный код расширения браузера"
+  },
+  "buttonXpiCrx": {
+    "message": "Пакет XPI/CRX"
+  },
+  "buttonXpiCrxSubtitle": {
+    "message": "Скачать в оригинальном формате"
+  },
+  "buttonZip": {
+    "message": "ZIP-архив"
+  },
+  "buttonZipSubtitle": {
+    "message": "Скачать как сжатый файл"
+  },
+  "buttonZipBeautify": {
+    "message": "ZIP (Отформатированный)"
+  },
+  "buttonZipBeautifySubtitle": {
+    "message": "Скачать с отформатированным кодом"
+  },
+  "footerText": {
+    "message": "Использовать на страницах магазина расширений"
+  },
+  "unsupportedSite": {
+    "message": "Неподдерживаемый сайт"
+  },
+  "unsupportedMessage": {
+    "message": "Этот сайт не поддерживается. Пожалуйста, используйте на страницах магазина расширений."
+  },
+  "statusFetching": {
+    "message": "Получение пакета..."
+  },
+  "statusConverting": {
+    "message": "Конвертация в ZIP..."
+  },
+  "statusFormatting": {
+    "message": "Форматирование кода..."
+  },
+  "statusDownloading": {
+    "message": "Начало загрузки..."
+  },
+  "statusCompleted": {
+    "message": "Загрузка завершена!"
+  },
+  "statusError": {
+    "message": "Произошла ошибка. Пожалуйста, используйте на страницах магазина расширений."
+  }
+}
+
